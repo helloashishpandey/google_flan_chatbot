@@ -6,8 +6,10 @@ from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.document_loaders import DataFrameLoader
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Step 1: Load the CSV file
 csv_file = "food_items.csv"
