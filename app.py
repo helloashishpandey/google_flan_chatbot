@@ -1,5 +1,5 @@
 import pandas as pd
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from langchain.chains import RetrievalQA
 from langchain.llms import HuggingFaceHub
 from langchain.vectorstores import FAISS
@@ -69,7 +69,8 @@ else:
 
 @app.route("/", methods=["GET"])
 def info():
-    return jsonify({"msg": "papa hoon me papa"})
+    # Pass data to the template
+    return render_template("index.html", msg="index")
 
 @app.route("/query", methods=["POST"])
 def query_food_info():
